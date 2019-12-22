@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,33 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#include "PassDialog.h"
+
+PassDialog::PassDialog( wxWindow* parent )
+:
+PassDialogBase( parent )
+{
+
+}
+
+
+void PassDialog::setChiPassa(int chiPassa)
+{
+    switch (chiPassa) {
+        case PLAYER_PASSES: {
+            m_textCtrl554->SetValue("GIOCATORE");
+            break;
+        }
+        case COMPUTER_PASSES: {
+            m_textCtrl554->SetValue("COMPUTER");
+            break;
+        }
+    }
+}
+
+PassDialog::~PassDialog()
+{
+
+}

@@ -1,0 +1,2 @@
+#!/bin/sh
+C:/myLibs/wx-mybuild/3.1.2/mybuild6/myinstall6/bin/wx-config --debug $1 | sed 's/\/c/C:/g' | sed 's/windres//'

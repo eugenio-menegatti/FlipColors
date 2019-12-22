@@ -1,0 +1,2 @@
+#!/bin/sh
+C:/myLibs/sdl-mybuild/SDL-1.2.15/mybuild2/myinstall2/bin/sdl-config $1 | sed 's/\/c/C:/g'

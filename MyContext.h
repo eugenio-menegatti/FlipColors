@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,27 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#ifndef MYCONTEXT_H
+#define MYCONTEXT_H
+#include "MainGameArea.h"
+#include <string>
+
+using namespace std;
+
+class MyContext
+{
+public: // verificare se sia il caso di renderla privata con getter/setter
+    string base_res_path;
+    
+public:
+    MyContext();
+    ~MyContext();
+
+    void initLog();
+    void debug(string &message);
+    
+};
+
+#endif // MYCONTEXT_H

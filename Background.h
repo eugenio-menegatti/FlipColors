@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,35 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#ifndef BACKGROUND_H
+#define BACKGROUND_H
+
+#include "Graphics.h"
+#include <string>
+#include <SDL.h>
+
+#define BACKGROUND_PATH "background\\"
+
+using namespace std;
+
+class Background : public Graphics
+{
+public:
+    Background();
+    ~Background();
+
+protected:
+    float x, y;
+
+public:
+    void init(string filename);
+    void draw(SDL_Surface *screen);
+    float getX();
+    float setX(float x);
+    float getY();
+    float setY(float y);
+};
+
+#endif // BACKGROUND_H

@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,48 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#include <stdio.h>
+#include "LogFile.h"
+#include "MyLog.h"
+
+LogFile::LogFile()
+{
+    // NON LOGGARE QUI - IL LOG NON E' ANCORA INIZIALIZZATO
+    file = NULL;
+}
+
+LogFile::LogFile(const char *logFileName)
+{
+    // NON LOGGARE QUI - IL LOG NON E' ANCORA INIZIALIZZATO
+    initMyLog(logFileName);
+    // DA QUI IN POI SI PUO' LOGGARE
+    MYLOG_DEBUG("Log system started");
+}
+
+LogFile::~LogFile()
+{
+    // QUI SI PUO' ANCORA LOGGARE
+    MYLOG_DEBUG("~LogFile");
+    MYLOG_DEBUG("Log system ended");
+    if (file != NULL) {
+        fflush(file);
+        fclose(file);
+    }
+    // DA QUI IN POI NON SI PUO' PIU' LOGGARE - LogFile E' STATO GIA' DISTRUTTO
+}
+
+void LogFile::initMyLog(const char *logFileName)
+{
+    fileName = logFileName;
+    #ifdef ENABLE_LOG
+        #ifdef LOG_TO_FILE
+            MyLog::configureFile();
+        #else
+            #ifdef LOG_TO_CONSOLE
+                MyLog::configureConsole();
+            #endif
+        #endif
+    #endif
+}

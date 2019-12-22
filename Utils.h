@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,29 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#ifndef UTILS_H
+#define UTILS_H
+
+#include "GamePlay.h"
+
+typedef struct {
+    int playerColor;
+    bool autoPass;
+    int algoritmoAI;
+} uiParamsType;
+
+class Utils
+{
+public:
+    Utils();
+    ~Utils();
+    
+    static void fillWithEmptyCoords(checkerboardCoord (&mosse)[8]);
+    static void fillWithEmptyCoords(checkerboardCoord (&mosse)[64]);
+    static void fillWithEmptyCoords(checkerboardCoord (&mosse)[8][8]);
+
+};
+
+#endif // UTILS_H

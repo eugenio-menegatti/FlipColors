@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,58 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#include "Background.h"
+#include "main.h"
+#include <string>
+#include <SDL.h>
+#include <SDL_image.h>
+
+Background::Background()
+{
+    graphicsPath = myContext.base_res_path + BACKGROUND_PATH;
+}
+
+Background::~Background()
+{
+}
+
+void Background::draw(SDL_Surface *screen)
+{
+    if (screen!=NULL) {
+        SDL_Rect coords;
+        coords.x = x;
+        coords.y = y;
+        blit(screen, coords);
+    }
+}
+
+void Background::init(string filename)
+{
+    surface = NULL;
+    x = y = 0;
+    loadBitmap(filename);
+}
+
+float Background::getX()
+{
+    return x;
+}
+
+float Background::setX(float x)
+{
+    this->x = x;
+    return x;
+}
+
+float Background::getY()
+{
+    return y;
+}
+
+float Background::setY(float y)
+{
+    this->y = y;
+    return y;
+}

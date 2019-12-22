@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,34 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#ifndef GRAPHICS_H
+#define GRAPHICS_H
+
+#include <string>
+#include <SDL.h>
+
+using namespace std;
+
+class Graphics
+{
+    
+protected:
+    SDL_Surface *surface;
+    string graphicsPath;
+
+protected:
+    void loadPNG(string &filename);
+    void loadBMP(string &filename);
+    SDL_Surface *loadSurface(string &filename);
+    void loadBitmap(string &filename);
+    void blit(SDL_Surface *screen, SDL_Rect &coords);
+    
+public:
+    Graphics();
+    ~Graphics();
+
+};
+
+#endif // GRAPHICS_H

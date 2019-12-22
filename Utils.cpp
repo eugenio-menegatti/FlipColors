@@ -1,6 +1,4 @@
-BSD 3-Clause License
-
-FlipColors
+/*
 Copyright (c) 2019, EUGENIO MENEGATTI
 All rights reserved.
 
@@ -25,3 +23,38 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#include "Utils.h"
+#include "main.h"
+#include "GamePlay.h"
+
+Utils::Utils()
+{
+}
+
+Utils::~Utils()
+{
+}
+
+void Utils::fillWithEmptyCoords(checkerboardCoord (&mosse)[64])
+{
+    checkerboardCoord emptyCoords = {-1, -1};
+    for (int i=0; i<64; ++ i) memcpy(&(mosse[i]), &emptyCoords, sizeof(checkerboardCoord));
+}
+
+void Utils::fillWithEmptyCoords(checkerboardCoord (&mosse)[8])
+{
+    checkerboardCoord emptyCoords = {-1, -1};
+    for (int i=0; i<8; ++ i) memcpy(&(mosse[i]), &emptyCoords, sizeof(checkerboardCoord));
+}
+
+void Utils::fillWithEmptyCoords(checkerboardCoord (&mosse)[8][8])
+{
+    checkerboardCoord emptyCoords = {-1, -1};
+    for (int i=0; i<8; ++i) {
+        for (int j=0; j<8; ++j) {
+            memcpy(&(mosse[i][j]), &emptyCoords, sizeof(checkerboardCoord));
+        }
+    }
+}
